@@ -5,12 +5,12 @@
  //$my_user=$_SESSION["usr"];
 
     //echo "/".$edad."/"
-    
+
 include 'cat_alcaldia.php';
 ?>
-	
 
-	
+
+
 
 <form method="POST" id="guardarparticipante">
 
@@ -76,7 +76,7 @@ include 'cat_alcaldia.php';
 
 
 
-   
+
 
 
     <div class="row form-group">
@@ -95,27 +95,27 @@ include 'cat_alcaldia.php';
 
       <label class="col-sm-4 control-label">Categoría</label>
       <div class="col-sm-8">
-        <select  class="form-control input-medium" name="categoria" id="categoria" <?php echo $style_disabled;?> >                               
+        <select  class="form-control input-medium" name="categoria" id="categoria" <?php echo $style_disabled;?> >
 
                      <option value="0" <?php if($edad==0) echo 'selected'; ?> disabled>Tu edad debe estar incluida en una de las categorías</option>
-                    <option value="1" <?php if($edad>=11&&$edad<=17) echo 'selected';?> >Categoría 12 a 17 años</option>
+                    <option value="1" <?php if($edad>=12&&$edad<=17) echo 'selected';?> >Categoría 12 a 17 años</option>
                     <option value="2" <?php if($edad>=18&&$edad<=29) echo 'selected';?> >Categoría 18 a 29 años</option>
-                   
 
-                    
-          
+
+
+
         </select>
       </div>
 
     </div>
 
-    
+
     <?php
 
-    
+
       echo '<input  type="hidden" class="form-control noborder" id="tutor" name="tutor" value="">';
 
-    
+
     ?>
     <div class="row form-group">
 
@@ -134,17 +134,17 @@ include 'cat_alcaldia.php';
       <div class="col-sm-8">
         <!--<input  type="text" class="form-control noborder style_disabled" id="genero" name="genero" value="<?php echo $genero; ?>" <?php echo $style_disabled2;?> >-->
 
-        <select  class="form-control input-medium" name="genero" id="genero" <?php echo $style_disabled2;?>>                               
+        <select  class="form-control input-medium" name="genero" id="genero" <?php echo $style_disabled2;?>>
                   <option value="0" selected disabled>Selecciona una opción</option>
                   <option value="M" <?php if($genero=='M') echo 'selected';?> >Masculino</option>
                   <option value="F" <?php if($genero=='F') echo 'selected';?> >Femenino</option>
                   <option value="X" <?php if($genero=='X') echo 'selected';?> >No se identifica</option>
-                  
+
           </select>
 
 
       </div>
-    </div>    
+    </div>
 
     <div class="row form-group">
 
@@ -165,24 +165,24 @@ include 'cat_alcaldia.php';
     </div>-->
 
 
-    
+
    <!-- <hr class="small">
      <div class="form-check">
 
 
       <input  type="checkbox" class="form-check-input" id="extranjero" name="extranjero" <?php echo $style_disabled2;?> <?php if($extranjero){ echo "checked"; } ?>  onchange="checkextranjero();">
 
-      <label class="form-check-label" for="nombre" style="font-size: 13pt; line-height: 80%;">Registro desde el extranjero</label>   
-     
-    </div> 
+      <label class="form-check-label" for="nombre" style="font-size: 13pt; line-height: 80%;">Registro desde el extranjero</label>
+
+    </div>
     <div class="row mt-2">
       <div class="alert alert-warning" id="mensajeextranjero" style="display: none;">
         Sólo para personas que residan en el extranjero.
       </div>
     </div>
     <hr class="small">-->
-  
-    
+
+
 
 
 
@@ -196,7 +196,7 @@ include 'cat_alcaldia.php';
       <label class="form-check-label col-sm-4" for="nombre">* País</label>
 
       <div class="col-sm-8">
-       
+
 
          <select class="form-control noborder" id="pais" name="pais"  <?php echo $style_disabled2;?> onchange="fnSelectPais()">
           <option value="0"  selected disabled>Selecciona una opción</option>
@@ -212,8 +212,8 @@ include 'cat_alcaldia.php';
             }
 
           ?>
-          
-          
+
+
         </select>
       </div>
     </div>
@@ -224,12 +224,12 @@ include 'cat_alcaldia.php';
           <label  class="control-label col-sm-4" id="label-entidad-ciudad">* Entidad</label>
 
           <div class="col-sm-8">
-            <input type="text" class="form-control noborder" id="entidad" name="entidad"  value="<?php echo $entidad; ?>" maxlength="99" <?php echo $style_disabled;?> > 
+            <input type="text" class="form-control noborder" id="entidad" name="entidad"  value="<?php echo $entidad; ?>" maxlength="99" <?php echo $style_disabled;?> >
           </div>
     </div>
 
 
-     
+
 
 
 
@@ -252,11 +252,11 @@ include 'cat_alcaldia.php';
             }
 
           ?>
-          
-          
+
+
         </select>
 
-       
+
       </div>
     </div>
 
@@ -265,7 +265,7 @@ include 'cat_alcaldia.php';
       <label  class="control-label col-sm-4">* País de residencia</label>
 
       <div class="col-sm-8">
-        
+
 
         <div class="row form-group bloquepais" id="bloquepais">
 
@@ -279,9 +279,9 @@ include 'cat_alcaldia.php';
     </div>
 
     <!--<div class="row form-group">
-                              
+
       <label class="control-label col-sm-4" for="nombre">* Supuesto en el que recae mi derecho a participar</label>
-      
+
       <div class="col-sm-8">
         <input type="checkbox" name="resido_cdmx" id="resido_cdmx" <?php if($resido_cdmx) echo "checked"; ?> <?php echo $style_disabled2;?>> Resido en la Ciudad de México <br>
         <input type="checkbox" name="soyoriundo" id="soyoriundo" <?php if($soyoriundo) echo "checked"; ?> <?php echo $style_disabled2;?> > Soy oriundo de la Ciudad de México <br>
@@ -290,8 +290,8 @@ include 'cat_alcaldia.php';
     </div>
   -->
 
-    
-    
+
+
 
     <!--<div class="row form-group">
 
@@ -315,13 +315,13 @@ include 'cat_alcaldia.php';
           <label  class="control-label col-sm-4" ><b> Enlace del video</b></label>
 
           <div class="col-sm-8">
-            <input type="text" class="form-control noborder" id="video0" name="video0"  value="<?php echo $video1; ?>" maxlength="499" <?php echo $style_disabled2;?> > 
+            <input type="text" class="form-control noborder" id="video0" name="video0"  value="<?php echo $video1; ?>" maxlength="499" <?php echo $style_disabled2;?> >
           </div>
     </div>
 
     <hr>-->
 
-    <p class="badge badge-secondary"> * Campos obligatorios</p> 
+    <p class="badge badge-secondary"> * Campos obligatorios</p>
 
 
   </div>
@@ -346,6 +346,3 @@ include 'cat_alcaldia.php';
 
 
 </form>
-	
-		  
-	

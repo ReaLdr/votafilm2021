@@ -9,16 +9,16 @@
   }
 
 
-  
-    $fecha1="2020-06-15 08:59:00"; ///2019-07-16
-    $fecha2="2020-09-18 23:59:59";
 
-   
+    $fecha1="2021-07-27 08:59:00";
+    //$fecha1="2021-08-10 08:59:00";//LA BUENA
+    $fecha2="2021-10-22 23:59:59";
+//10 de agosto al 22 de octubre de 2021
+   //	   08              10
 
-    
- 
 
- 
+
+
    //echo " / ".date("Y-m-d")." / ".date($fecha1)." / ".date($fecha2);
 
 
@@ -41,11 +41,11 @@
 
 
 
-    
+
 
     include('sqlconnector.php');
 
-    
+
 	$nomcompleto = "";
     $usr= $_POST['usr'];
     $pwd=$_POST['pwd'];
@@ -64,18 +64,18 @@
       $status=$row['estatus'];
 
       //$area=$row['area'];
-      
+
       $usr=$row['usuario'];
       $pwd=$row['contrasena'];
-     
+
       $area=$row['area'];
       $distrito=$row['iddistrito'];
 
 
-     
-      
-      
-      
+
+
+
+
 
       if($status=='1'&&$perfil=='1'){
 
@@ -86,20 +86,20 @@
   	    $_SESSION["paterno"]=$paterno;
   	    $_SESSION["materno"]=$materno;
         $_SESSION["perfil"] =$perfil;
-       
+
 
 
   		    header("Location: main.php");
-        //echo "true";  
+        //echo "true";
       }else{
 
         session_destroy();
-		 header("Location: login.php?activado=0");	 
+		 header("Location: login.php?activado=0");
       //echo " / ".$area." // ".$concurso." / ";
-		  
+
 	    }
 
-      
+
 
       if($perfil=='3'){
 
@@ -112,14 +112,14 @@
         $_SESSION["paterno"]=$paterno;
         $_SESSION["materno"]=$materno;
         $_SESSION["perfil"] =$perfil;
-      
+
         $_SESSION["distrito"]=$distrito;
 
-       
+
 
 
           header("Location: maincentrales.php");
-        //echo "true";  
+        //echo "true";
       }
 
 
@@ -153,7 +153,7 @@
     <!--<script src="js/holder.min.js"></script>-->
     <script src="js/funcionesajax.js"></script>
      <link rel="stylesheet" href="css/all.css">
-    
+
 
 </head>
 <body >
@@ -167,11 +167,11 @@
 
 <!-- //////////////////////////////////////////////////////////// -->
 <div class="container" id="main_container"> <!-- container 2 -->
-   
+
 <div class="container">
-  
-  
-  
+
+
+
 
   <div class="row">
      <div class="col-sm-10">
@@ -217,8 +217,8 @@
                   <button type="button" class="btn btn-light btn-block" onclick="location.href='recuperarcontrasena.php'">Recuperar contraseña</button>
               </div>
             </div>
-            
-  <?php 
+
+  <?php
             if( isset($_GET['act'])){
                echo '<div class="alert alert-success" align="center">Usuario o contraseña no existe</div>';
             }
@@ -231,16 +231,16 @@
         </div>
     </div>
   </div>
-  
+
   <div class="col-md-2">
   </div>
-  
+
   <div class="col-md-5">
     <div class="row" id="anim">
       <div class="bg-primary text-white anim1">
         ¿Eres nuevo aquí? Primero regístrate  <i class="fas fa-long-arrow-alt-down"></i>
       </div>
-      
+
     </div>
     <div class="card">
       <div class="card-header">Nuevo usuario</div>
@@ -255,16 +255,16 @@
             </div>
             <hr>
             <div class="col">
-              
-              <p> Periodo de registro:</p> <p><b>Del 15 de junio al 18 de septiembre de 2020</b></p>
+
+              <p> Periodo de registro:</p> <p><b>Del 10 de agosto al 22 de octubre de 2021</b></p>
               <!-- <p><?php echo date($fecha1)." - ".date("Y-m-d H:i:s");?></p>-->
             </div>
           </form>
-            
+
           </div>
 
 
-        
+
       </div>
     </div>
     <div class="m-5" ><a href="documentos_descarga/convocatoria.pdf" target="_blank">Consulta la convocatoria</a></div>
@@ -273,8 +273,8 @@
   </div> <!-- row -->
 
   <div class="row"><!-- row 2 -->
-   
-      
+
+
       <div class="card" style="width:100%;">
         <div class="card-header">
           <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse1">
@@ -284,16 +284,16 @@
       <div class="card-body">
       <div class="collapse" id="collapse1">
         <div class="d-flex justify-content-center"><p>Descarga los siguientes formatos y llénalos con tinta azul.</p></div>
-        
-         
-             
-           
-          
+
+
+
+
+
                 <?php
-                             
+
                               echo '<div class="row">';
-                               echo '<div class="col-sm-6">'; 
-                               echo '<p>Menores de edad (12 a 17 años)</p>';                     
+                               echo '<div class="col-sm-6">';
+                               echo '<p>Menores de edad (12 a 17 años)</p>';
 
                                 echo ' <div class="row" >
                                         <div class="col-sm-1">
@@ -303,9 +303,9 @@
                                           <a href="descargarword.php?f='.base64_encode('documentos_descarga/cartacesion_cat1.docx').'" target="_blank">1. Carta de cesión de derechos</a>
                                         </div>
                                       </div>';
-                               
-                              
-                                
+
+
+
                                 echo ' <div class="row">
                                             <div class="col-sm-1">
                                               <i class="far fa-file-pdf"></i>
@@ -315,14 +315,14 @@
                                             </div>
                                       </div>';
                                  echo '</div>'; //col-sm-6
-                              
-                               
 
-                           
+
+
+
 
                                echo '<div class="col-sm-6">';
-                                 echo '<p>Mayores de edad (18 a 29 años)</p>';            
-                                         
+                                 echo '<p>Mayores de edad (18 a 29 años)</p>';
+
 
                                 echo ' <div class="row">
                                         <div class="col-sm-1">
@@ -332,9 +332,9 @@
                                           <a href="descargarword.php?f='.base64_encode('documentos_descarga/cartacesion_cat2.docx').'" target="_blank">1. Carta de cesión de derechos.</a>
                                         </div>
                                       </div>';
-                               
-                              
-                                
+
+
+
                                 echo ' <div class="row">
                                             <div class="col-sm-1">
                                               <i class="far fa-file-pdf"></i>
@@ -350,18 +350,18 @@
                                  echo '<hr>';
 
                                  echo '<div class="m-5" ><a href="documentos_descarga/convocatoria.pdf" target="_blank">Consulta la convocatoria</a></div>';
-                               
 
 
-                           
-                               
-                              
-                                
-                                
+
+
+
+
+
+
 ?>
-                 
 
-    
+
+
 
 
     </div><!---collapse -->
@@ -391,7 +391,7 @@
 
 
 </body>
-</html> 
+</html>
 
 <?php
 

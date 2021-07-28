@@ -17,15 +17,15 @@
 		  $row = sqlsrv_query($conn,$query1);
           if($res=sqlsrv_fetch_array($row))
           {
-              
+
           $nombre=$res["nombre"]." ".$res["paterno"]." ".$res["materno"];
-	     
-	    
-	      
+
+
+
 	      $fecha_nacimiento=$res["fecha_nacimiento"];
 	      //$fecha_alta=$res["fecha_alta"];
 
-     
+
 
        $cat=$res['categoria'];
 
@@ -33,12 +33,12 @@
           $categoria="A: 12 a 17 años";
         }else{
           $categoria="B: 18 a 29 años";
-        
-        }
-	     
-	      
 
-	    
+        }
+
+
+
+
           	//echo "  **".$num."**  ";
           }else{
 
@@ -67,19 +67,19 @@
           $fecha=$dia." de ".$mes;
 
 
-	 	
+
     $full_path = 'documentos_descarga/acuse'.rand(1,3).'-'.rand(1,3).'.docx';
     //Copy the Template file to the Result Directory
-    
 
 
 
-  
+
+
 
       copy("documentos_descarga/acuse2020.docx", $full_path);
 
-   
-    
+
+
 
 
 
@@ -97,27 +97,27 @@
         // In the document.xml file located in the word directory.
 
         $key_file_name = 'word/document.xml';
-        $message = $zip_val->getFromName($key_file_name);               
+        $message = $zip_val->getFromName($key_file_name);
 
         $timestamp = date('d-M-Y H:i:s');
 
         // this data Replace the placeholders with actual values
         $message = str_replace("{nombre}", $nombre, $message);
-        $message = str_replace("{folio}", $folio, $message); 
-        $message = str_replace("{categoria}", $categoria, $message); 
-       
+        $message = str_replace("{folio}", $folio, $message);
+        $message = str_replace("{categoria}", $categoria, $message);
 
-         $message = str_replace("{fecha}", $fecha, $message); 
-         // $message = str_replace("{mes}", $mes, $message); 
 
-       
+         $message = str_replace("{fecha}", $fecha, $message);
+         // $message = str_replace("{mes}", $mes, $message);
+
+
         //Replace the content with the new content created above.
         $zip_val->addFromString($key_file_name, $message);
          //$zip_val->extractTo('test');
         $zip_val->close();
 
-       
-		
+
+
 
       }
 /*    ob_start();
@@ -140,9 +140,9 @@
         ob_clean();
         flush();
         readfile($full_path);
-        //exit(); 
+        //exit();
 
-	
+
         unlink($full_path);
 
  		ignore_user_abort(true);

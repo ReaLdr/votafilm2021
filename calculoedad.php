@@ -1,20 +1,21 @@
 <?php
    // $fecha_nacimiento="1989-09-07"; ///
-   
+
    // $fecha_nacimiento="2007-09-06"; ///
-   
-    
+
+
     $fecha_nacimiento=$_POST['fecha_nacimiento'];
 
 
 //    $fecha_inicio_año_concurso="2020-01-01";
-    
-    $fecha_inicio_concurso="2020-09-18";
-//    $fecha_fin_concurso="2020-07-30";
-    
+
+    $fecha_inicio_concurso="2021-07-27";
+    //$fecha_inicio_concurso="2021-08-10";//ORIGINAL
+
+
 //    $fecha_fin_año_concurso="2020-12-31";
 
-    
+
 
     $años_hoy=date_diff(date_create($fecha_nacimiento), date_create('today'))->y;
 
@@ -38,7 +39,7 @@
     $cadena_edad="";
 
    $califica=false;
-    
+
 
 
 
@@ -55,9 +56,9 @@
        // $califica=true;
     }
 
-    
 
-    
+
+
 
    $edad=$años_inicio;
 
@@ -65,7 +66,7 @@
 
             $resultado=array(
                         'edad'=>$edad,
-                        'mensaje'=>'<div class="alert alert-success">Tu edad (al 18 de septiembre de 2020): <b>'.$edad.'</b> '.$cadena_edad.'</div>',
+                        'mensaje'=>'<div class="alert alert-success">Tu edad (al 10 de agosto de 2021): <b>'.$edad.'</b> '.$cadena_edad.'</div>',
                         'califica'=>'1'
                         );
 
@@ -90,7 +91,7 @@
 
              $resultado=array(
                         'edad'=>$edad,
-                        'mensaje'=>'<div class="alert alert-warning"><p>Tu edad (al 18 de septiembre de 2020):<b>'.$edad.'</b></p><p>Sólo se permite concursar en dos categorías: de 12 a 17 años y de 18 a 29 años.</p>'.$cadena_edad.'</div>',
+                        'mensaje'=>'<div class="alert alert-warning"><p>Tu edad (al 10 de agosto de 2021):<b>'.$edad.'</b></p><p>Sólo se permite concursar en dos categorías: de 12 a 17 años y de 18 a 29 años.</p>'.$cadena_edad.'</div>',
                         'califica'=>'0'
                         );
              /*
@@ -114,7 +115,7 @@
 
         echo json_encode($resultado);
 
-    
-    
+
+
 
 ?>

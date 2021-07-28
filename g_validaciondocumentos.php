@@ -20,7 +20,7 @@ include('phpmailer/class.phpmailer.php');
 include('phpmailer/class.smtp.php');
 include('phpmailer/PHPMailerAutoload.php');
 include('sqlconnector.php');
-	
+
 include('rutasitio.php');
 include('cat_alcaldia.php');
 
@@ -39,22 +39,22 @@ if($action=='update'){//////////////////código del update y el correo
 		//echo "  /".$edad."/   ";
 
 
-	  
+
     	$status_doc1=$_POST["status_doc1"];
     	$observa_doc1=$_POST["observa_doc1"];
 
-     
+
       $status_doc2=$_POST["status_doc2"];
       $observa_doc2=$_POST["observa_doc2"];
 
-    
+
       $status_doc3=$_POST["status_doc3"];
       $observa_doc3=$_POST["observa_doc3"];
 
 
-    
 
-    	
+
+
     	$status_doc4=$_POST["status_doc4"];
     	$observa_doc4=$_POST["observa_doc4"];
 
@@ -63,7 +63,7 @@ if($action=='update'){//////////////////código del update y el correo
       $observa_doc5=$_POST["observa_doc5"];
 
 
-    	
+
     	$status_doc6=$_POST["status_doc6"];
     	$observa_doc6=$_POST["observa_doc6"];
 
@@ -71,13 +71,13 @@ if($action=='update'){//////////////////código del update y el correo
     	$status_doc7=$_POST["status_doc7"];
     	$observa_doc7=$_POST["observa_doc7"];
 */
-    	
+
 
     	$observa_requi=$_POST['observa_requi'];
 
     	//$status_requisitos=$_POST['status_requisitos'];
-    	
-    	
+
+
 
 
     	$cat_categoria=array("0","A","B","C","D");
@@ -89,7 +89,7 @@ if($action=='update'){//////////////////código del update y el correo
 		  $row = sqlsrv_query($conn,$query1);
           if($res=sqlsrv_fetch_array($row))
           {
-              
+
           	$num=intval($res['numero'])+1;
           	//echo "  **".$num."**  ";
           }else{
@@ -100,9 +100,9 @@ if($action=='update'){//////////////////código del update y el correo
 
           }
 
-          
+
           	$prefijo="VFF";
-          
+
 
           $folio=$prefijo."-".$cat_categoria[$categoria]."-".$num;
           $checkfolio=true;
@@ -128,8 +128,8 @@ if($action=='update'){//////////////////código del update y el correo
 
 
 	          	}
-	            
-	          	
+
+
 	          }
 
           }
@@ -139,21 +139,21 @@ if($action=='update'){//////////////////código del update y el correo
 
 
    if($pais==117){
-       
+
        if($categoria==1){
           if($status_doc1=='1'&&$status_doc2=='1'&&$status_doc3=='1'&&$status_doc4=='1'){
-             
+
               $validado=true;
-              
+
           }
         }///1
 
         if($categoria==2){
             if($status_doc1=='1'&&$status_doc3=='1'&&$status_doc4=='1'){
-              
+
                $validado=true;
-               
-           
+
+
             }
 
         }////2
@@ -163,7 +163,7 @@ if($action=='update'){//////////////////código del update y el correo
         if($categoria==1){
           if($status_doc1=='1'&&$status_doc2=='1'&&$status_doc3=='1'&&$status_doc4=='1'){
             $validado=true;
-           
+
           }
         }///1
 
@@ -171,7 +171,7 @@ if($action=='update'){//////////////////código del update y el correo
             if($status_doc1=='1'&&$status_doc3=='1'&&$status_doc4=='1'){
              $validado=true;
 
-            
+
             }
 
         }////2
@@ -188,9 +188,9 @@ if($action=='update'){//////////////////código del update y el correo
 
     }
 
-       
 
-	
+
+
 
 
 //echo $query;
@@ -205,9 +205,9 @@ if($action=='update'){//////////////////código del update y el correo
 	          		<p>Se asignó el folio: '.$folio.'</p></div>';
 
 	          	echo '<div class="row" style="margin-bottom: 10px;">
-	                  
+
 	                   <div class="col-sm-5">
-	                    
+
 	                     <a href="maincentrales.php" class="btn btn-secondary">Regresar</a>
 	                   </div>
 	                </div>';
@@ -218,9 +218,9 @@ if($action=='update'){//////////////////código del update y el correo
 		          		<p>No se asignó un número de folio. Al estar incorrectos o incompletos alguno de los documentos.</p></div>';
 
 		          	echo '<div class="row" style="margin-bottom: 10px;">
-		                  
+
 		                   <div class="col-sm-5">
-		                    
+
 		                     <a href="maincentrales.php" class="btn btn-secondary">Regresar</a>
 		                   </div>
 		                </div>';
@@ -231,9 +231,9 @@ if($action=='update'){//////////////////código del update y el correo
           	echo '<div class="alert alert-warning" >
           		<p>Error al guardar en la base de datos</p></div>';
           		echo '<div class="row" style="margin-bottom: 10px;">
-                  
+
                    <div class="col-sm-5">
-                    
+
                      <a href="maincentrales.php" class="btn btn-secondary">Regresar</a>
                    </div>
                 </div>';
@@ -248,7 +248,7 @@ if($action=='update'){//////////////////código del update y el correo
 			  $row = sqlsrv_query($conn,$query);
 	          if($res=sqlsrv_fetch_array($row))
 	          {
-	              
+
 	          	$correo=$res['correo'];
 	          	$nombre=$res['nombre']." ".$res['paterno']." ".$res['materno'];
 	          	//echo "  **".$num."**  ";
@@ -279,14 +279,14 @@ if($action=='update'){//////////////////código del update y el correo
 
           		$folio_64=base64_encode("/jF5i/".$folio."/jF5i/");
 
-          		$html=' 
+          		$html='
 					<html>
 					<body style="width:80%; display: block; margin: 0 auto;">
 					<table width="353" border="0">
 			  			<tbody>
 				    		<tr>
 				      			<td width="218"><img src="'.URL_CONCU.'/img/header20_1.png" width="146" height="151"></td>
-						      	<td width="805"><h1 style="color:#6611AA;"> VOTAFILMFEST 2020</td>
+						      	<td width="805"><h1 style="color:#6611AA;"> VOTAFILMFEST 2021</td>
 				    		</tr>
 			  			</tbody>
 					</table>
@@ -294,22 +294,22 @@ if($action=='update'){//////////////////código del update y el correo
 
 					<div style="align:center">
 							<p align="justify"><h3>Estimado(a) '.$nombre.'.</h3></p>
-							
+
 							<br>
-							
-							<p align="justify">Has completado correctamente el registro en la tercera edición del concurso VOTAFILMFEST 2020</p>
+
+							<p align="justify">Has completado correctamente el registro en la cuarta edición del concurso VOTA FILM FEST 2021.</p>
 							<br>
 							<div style="display:block; margin:0 auto; text-align:center; max-width: 70%; border:1px solid #EEE;">
 								<p>Tu número de folio es: <b>'.$folio.'</b></p>
 
 							</div>
-							
+
 							<p>Descarga el acuse de registro en <a href="'.URL_CONCU.'descargaracuseweb.php?v='.$folio_64.'">este enlace</a></p>
-							
+
 							<br>
-							
+
 					    </div>
-						
+
 						<strong><p align="center"><font size="3pt">Instituto Electoral de la Ciudad de M&eacute;xico <br/>
 					      Huizaches 25 &bull; Rancho Los Colorines &bull; Tlalpan &bull; C.P. 14386 &bull; Ciudad de M&eacute;xico  &bull; Conmutador: (55) 5483 3800</font></p>
 					      </strong>
@@ -325,14 +325,14 @@ if($action=='update'){//////////////////código del update y el correo
           		/////correro NOT OK
 
 
-          		$html=' 
+          		$html='
 					<html>
 					<body style="width:80%; display: block; margin: 0 auto;">
 					<table width="353" border="0">
 			  			<tbody>
 				    		<tr>
 				      			<td width="218"><img src="'.URL_CONCU.'/img/header20_1.png" width="146" height="151"></td>
-						      	<td width="805"><h1 style="color:#6611AA;"> VOTAFILMFEST 2020</h1> </td>
+						      	<td width="805"><h1 style="color:#6611AA;"> VOTAFILMFEST 2021</h1> </td>
 				    		</tr>
 			  			</tbody>
 					</table>
@@ -340,33 +340,33 @@ if($action=='update'){//////////////////código del update y el correo
 
 					<div style="align:center">
 						<p align="justify"><h3>Estimado(a) '.$nombre.'.</h3></p>
-							
+
 							<br>
-							
-						
-						<p align="justify">Este correo automático ha sido enviado para notificar que la documentación proporcionada para VOTAFILMFEST 2020 está incompleta o incorrecta.</p>
+
+
+						<p align="justify">Este correo automático ha sido enviado para notificar que la documentación proporcionada para VOTA FILM FEST 2021 está incompleta o incorrecta.</p>
 						<p> Aquí las observaciones sobre cada uno de los documentos:</p>';
-							 
-							 
-							
-							
+
+
+
+
 							if($status_doc1==1) $var_A="Correcto";
-							else $var_A="Incorrecto";	
-		
+							else $var_A="Incorrecto";
+
 							if($status_doc2==1) $var_B="Correcto";
-							else $var_B="Incorrecto";	
-							
+							else $var_B="Incorrecto";
+
 							if($status_doc3==1) $var_C="Correcto";
 							else $var_C="Incorrecto";
 
 							if($status_doc4==1) $var_D="Correcto";
 							else $var_D="Incorrecto";
-							
-							
 
-							
-							
-							
+
+
+
+
+
 
 						$html.='<div style="display:block; margin:0 auto; text-align:center; max-width: 70%; border:1px solid #EEE;">';
 						$html.='<table>
@@ -375,9 +375,9 @@ if($action=='update'){//////////////////código del update y el correo
 									<td>Estatus</td>
 									<td>Observaciones</td>
 								</tr>
-						
-								
-								<tr style="border-bottom:1px solid #EEE;">							
+
+
+								<tr style="border-bottom:1px solid #EEE;">
 									<td>Identificación oficial</td>
 									<td>'.$var_A.'</td>
 									<td>'.$observa_doc1.'</td>
@@ -387,39 +387,39 @@ if($action=='update'){//////////////////código del update y el correo
 
 								if($categoria==1){
 
-								$html.='<tr style="border-bottom:1px solid #EEE;">							
+								$html.='<tr style="border-bottom:1px solid #EEE;">
 									<td>Identificación tutor</td>
 									<td>'.$var_B.'</td>
 									<td>'.$observa_doc2.'</td>
 								</tr>';
 								}
-								
-								
+
+
 									$html.='<tr style="border-bottom:1px solid #EEE;">
 										<td>Cesión de derechos</td>
 										<td>'.$var_C.'</td>
 										<td>'.$observa_doc3.'</td>
 									</tr>';
-								
 
-							
-							$html.='<tr style="border-bottom:1px solid #EEE;">							
+
+
+							$html.='<tr style="border-bottom:1px solid #EEE;">
 									<td>Carta bajo protesta de decir verdad que la obra es inédita</td>
 									<td>'.$var_D.'</td>
 									<td>'.$observa_doc4.'</td>
 								</tr>';
-								
-								
+
+
 							$html.='</table>
 							<p> Observación general: '.$observa_requi.'</p>
 							</div>
 
 							<p>Para corregir los archivos, es necesario ingresar con usuario y contraseña para subir los nuevos archivos, <a href="'.URL_CONCU.'index.php"> haciendo clic aquí</a></p>
 
-							
-							
-						</div>	
-							
+
+
+						</div>
+
 							<div>
 					          <strong>
 							<p align="center"><font size="3pt">Instituto Electoral de la Ciudad de M&eacute;xico<br />
@@ -435,8 +435,8 @@ if($action=='update'){//////////////////código del update y el correo
 
           	 				try{
 								//$destinatario1 = 'nancy.hernandez@iecm.mx';
-								$destinatario2 = 'sergio.monterrubio@iecm.mx';	
-					
+								$destinatario2 = 'sergio.monterrubio@iecm.mx';
+
 
 								//$mail->AddAddress($destinatario1); // Esta es la dirección a donde enviamos
 								$mail->AddAddress($correo); // Esta es la dirección a donde enviamos
@@ -454,32 +454,32 @@ if($action=='update'){//////////////////código del update y el correo
 
 
 								$mail->IsHTML(true); // El correo se envía como HTML
-								$mail->Subject = "VOTAFILMFEST 2020"; // Este es el titulo del email.
+								$mail->Subject = "VOTAFILMFEST 2021"; // Este es el titulo del email.
 								$mail->Body = $html; // Mensaje a enviar
-								
+
 								$exito = $mail->Send(); // Envía el correo.
-								
+
 
 								//$exito ="1";//
 								//$exito =0;//
-					
+
 									if($exito):
 
 
 									else:
-		
 
-									 
+
+
 
 
 									endif;
 							}//try
 							catch (Exception $e) {
-					
+
 							      echo "Excepción: ".$e->getMessage();
 							};//catch
 
-                    
+
 
                     		$mail->ClearAddresses();
 
@@ -524,7 +524,7 @@ if($action=='update'){//////////////////código del update y el correo
       $observa_doc3=$row["observa_doc3"];
 
 
-    
+
 
     	$doc4=$row["doc4"];
     	$status_doc4=$row["status_doc4"];
@@ -557,8 +557,9 @@ if($action=='update'){//////////////////código del update y el correo
 
 
 
-    
-    $fecha_fin_concurso="2020-07-21";
+
+    $fecha_fin_concurso="2021-10-22";
+    //$fecha_fin_concurso="2020-07-21";
  	//$años_hoy=date_diff(date_create($fecha_nacimiento), date_create('today'))->y;
     $edad=date_diff(date_create($fecha_nacimiento), date_create($fecha_fin_concurso))->y;
 
@@ -573,7 +574,7 @@ if($action=='update'){//////////////////código del update y el correo
 		echo '<p>País: '.$paises[$pais].'</p>';
 		echo '<p>Estatus: '.$status_label[$status_requisitos].'</p>';
 
-		echo '<hr>';		
+		echo '<hr>';
 
 		echo '<h2>Video</h2>';
 
@@ -605,10 +606,10 @@ if($action=='update'){//////////////////código del update y el correo
 				Estatus
 			</div>
 			<div class="col-sm-6">
-				Observaciones	
+				Observaciones
 			</div>
 		</div>
-		<div class="row rowconsultas"> 
+		<div class="row rowconsultas">
 
 			<input type="hidden" id="id" name="id" value=<?php echo $id;?>>
 			<input type="hidden" id="categoria" name="categoria" value=<?php echo $categoria;?>>
@@ -617,16 +618,16 @@ if($action=='update'){//////////////////código del update y el correo
 			<input type="hidden" id="edad" name="edad" value=<?php echo $edad;?>>
 
 
-			
+
 
 		</div>
 
 		<!------ doc1 -->
 
-		<div class="row rowconsultas"> 
+		<div class="row rowconsultas">
 
 			<div class="col-sm-4">
-				<?php	
+				<?php
 				if($doc1){
 					echo '<a href="'.UPLOAD_DIR.$doc1.'" class="btn btn-primary" target="_blank">Ver Identificacion Oficial</a>';
 				}
@@ -655,7 +656,7 @@ if($action=='update'){//////////////////código del update y el correo
 
 		<div class="row rowconsultas">
 			<div class="col-sm-4">
-				<?php		
+				<?php
 				if($doc2){
 					echo '<a href="'.UPLOAD_DIR.$doc2.'" class="btn btn-primary" target="_blank">Ver identificación tutor</a>';
 				}
@@ -684,16 +685,16 @@ if($action=='update'){//////////////////código del update y el correo
 
 		<!------ doc3 -->
 
-		<div class="row rowconsultas"> 
+		<div class="row rowconsultas">
 
 			<div class="col-sm-4">
-				<?php	
+				<?php
 				if($doc3){
 					echo '<a href="'.UPLOAD_DIR.$doc3.'" class="btn btn-primary" target="_blank">Carta de cesión de derechos</a>';
 				}
 				else{
 					echo 'No existe carta de cesión de derechos';
-				} 
+				}
 				?>
 			</div>
 
@@ -705,18 +706,18 @@ if($action=='update'){//////////////////código del update y el correo
 					<option  value="1" <?php if($status_doc3==1) echo 'selected';?> >Correcto</option>
 					<option  value="2" <?php if($status_doc3==2) echo 'selected';?> >Incorrecto</option>
 				</select>
-			</div> 
+			</div>
 
 
-			<div class="col-sm-6">	
+			<div class="col-sm-6">
 				<input type="text" class="form-control noborder" name= "observa_doc3" id="observa_doc3" value="<?php echo $observa_doc3;?>" maxlength="799">
 			</div>
-		</div>	 
+		</div>
 
 		<!-- doc4 -->
 
-	
-		<div class="row rowconsultas"> 
+
+		<div class="row rowconsultas">
 			<div class="col-sm-4">
 				<?php
 				if($doc4){
@@ -735,7 +736,7 @@ if($action=='update'){//////////////////código del update y el correo
 					<option  value="1" <?php if($status_doc4==1) echo 'selected';?> >Correcto</option>
 					<option  value="2" <?php if($status_doc4==2) echo 'selected';?> >Incorrecto</option>
 				</select>
-			</div> 
+			</div>
 
 
 			<div class="col-sm-6">
@@ -743,8 +744,8 @@ if($action=='update'){//////////////////código del update y el correo
 			</div>
 		</div>
 
-		
-			
+
+
 		<hr>
 
 
@@ -757,7 +758,7 @@ if($action=='update'){//////////////////código del update y el correo
 				<textarea class="form-control noborder" name="observa_requi" id="observa_requi" maxlength="799"><?php echo $observa_requisitos;?></textarea>
 
 			</div>
-		</div>		
+		</div>
 
 
 
@@ -770,7 +771,7 @@ if($action=='update'){//////////////////código del update y el correo
 			<input type="submit" value="Guardar" id="btn_guardar" class="control-form btn btn-primary btnguardar" onclick="this.disabled=true; fnguardarvalidaciones()">
 
 		</div>
-		<?php	
+		<?php
 }
 
 ?>

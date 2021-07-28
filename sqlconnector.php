@@ -10,23 +10,23 @@ $connectionInfo = array( "Database"=>"votafilmfest","ReturnDatesAsStrings" =>"tr
 */
 
 ///desarrollo
-/*
-$serverName = "145.0.40.72"; 
-$connectionInfo = array( "Database"=>"votafilmfest2020", "UID"=>"user1", "PWD"=>"u53r1", "ReturnDatesAsStrings" =>"true");/**/
+
+$serverName = "145.0.40.72";
+$connectionInfo = array( "Database"=>"votafilmfest2020", "UID"=>"user1", "PWD"=>"u53r1", "ReturnDatesAsStrings" =>"true");
 
 
-$serverName = "145.0.40.70"; 
-$connectionInfo = array( "Database"=>"votafilmfest", "UID"=>"votafilm_db", "PWD"=>"f35tv0t4db", "ReturnDatesAsStrings" =>"true");/**/
+/*$serverName = "145.0.40.70";
+$connectionInfo = array( "Database"=>"votafilmfest", "UID"=>"votafilm_db", "PWD"=>"f35tv0t4db", "ReturnDatesAsStrings" =>"true");*/
 
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $conn ) {
-   // echo "Conexión establecida.<br />";
+    //echo "Conexión establecida en: $serverName .<br />";
 }else{
      echo "Conexión no se pudo establecer.<br />";
      die( print_r( sqlsrv_errors(), true));
 }
 
-define("BD_USUARIOS","usuarios2020");
-define("BD_PARTICIPANTES","participantes2020");
+define("BD_USUARIOS","usuarios");
+define("BD_PARTICIPANTES","participantes");
 ?>
