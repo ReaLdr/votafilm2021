@@ -230,6 +230,7 @@ function crearusuario(){
                     //return false;
 
                 }else{
+                  sessionStorage.clear();//Limpiamos
                     document.getElementById("main_container").innerHTML = resultado;
                      document.getElementById("main_container").setAttribute("style", "pointer-events: auto;");
 

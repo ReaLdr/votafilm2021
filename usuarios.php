@@ -504,13 +504,13 @@
 
 		<div class="form-group row">
 		    <div class="col-sm-4">
-			    <input class="form-control" id="tmptxt" name="tmptxt" type="text" placeholder="Escribe los caracteres de la imagen">
-				<input class="form-control" id="tmptxt2" name="tmptxt2" type="hidden" value= "<?php $_SESSION['tmptxt2']?>">
+			    <input class="form-control" id="tmptxt" name="tmptxt" type="text" placeholder="Escribe los caracteres de la imagen" autocomplete="off">
+				<input class="form-control" id="tmptxt2" name="tmptxt2" type="hidden" value= "<?php $_SESSION['tmptxt2']?>" autocomplete="off">
 				</br>
 		          	  <img src="captcha.php" width="137" height="50">
 			</div>
 			<div class="col-sm-4">
-					   <input class="btn btn-secondary"  name="button" type="button" onClick="history.go(0)" value="Nuevos caracteres">
+					   <input class="btn btn-secondary"  name="button" type="button" onClick="save_temp();history.go(0)" value="Nuevos caracteres">
 			</div>
 		</div>
 
@@ -545,7 +545,41 @@
 	</div>
 </div> <!--- maincontainer -->
 
+<script type="text/javascript">
+  function save_temp(){
+    sessionStorage.setItem('nombre_ss', document.getElementById('nombre').value);
+    sessionStorage.setItem('paterno_ss', document.getElementById('paterno').value);
+    sessionStorage.setItem('materno_ss', document.getElementById('materno').value);
+    sessionStorage.setItem('fecha_nacimiento_ss', document.getElementById('fecha_nacimiento').value);
+    sessionStorage.setItem('edad_califica_ss', document.getElementById('edad_califica').value);
+    sessionStorage.setItem('edad_ss', document.getElementById('edad').value);
+    sessionStorage.setItem('categoria_ss', document.getElementById('categoria').value);
+    sessionStorage.setItem('user_ss', document.getElementById('user').value);
+    sessionStorage.setItem('pass1_ss', document.getElementById('pass1').value);
+    sessionStorage.setItem('pass2_ss', document.getElementById('pass2').value);
+    sessionStorage.setItem('correo_ss', document.getElementById('correo').value);
+    sessionStorage.setItem('correo2_ss', document.getElementById('correo2').value);
+  }
 
+  function read_data(){
+    document.getElementById('nombre').value = sessionStorage.getItem('nombre_ss'),
+    document.getElementById('paterno').value = sessionStorage.getItem('paterno_ss'),
+    document.getElementById('materno').value = sessionStorage.getItem('materno_ss'),
+    document.getElementById('fecha_nacimiento').value = sessionStorage.getItem('fecha_nacimiento_ss'),
+    document.getElementById('edad_califica').value = sessionStorage.getItem('edad_califica_ss'),
+    document.getElementById('edad').value = sessionStorage.getItem('edad_ss'),
+    document.getElementById('categoria').value = sessionStorage.getItem('categoria_ss'),
+    document.getElementById('user').value = sessionStorage.getItem('user_ss'),
+    document.getElementById('pass1').value = sessionStorage.getItem('pass1_ss'),
+    document.getElementById('pass2').value = sessionStorage.getItem('pass2_ss'),
+    document.getElementById('correo').value = sessionStorage.getItem('correo_ss'),
+    document.getElementById('correo2').value = sessionStorage.getItem('correo2_ss');
+    sessionStorage.clear();
+  }
+
+  read_data();
+
+</script>
 <?php
 	include('footer.php');
 ?>

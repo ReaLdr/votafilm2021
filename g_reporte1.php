@@ -66,7 +66,7 @@ $row = sqlsrv_query($conn,$sql);
                 <td>'.$res['paterno'].'</td>
                 <td>'.$res['materno'].'</td>
 
-                <td>\''.$res['tel1'].'</td>
+                <td>'.$res['tel1'].'</td>
                 <td>'.$res['correo'].'</td>
 
 	  			      <td>'.$res['genero'].'</td>

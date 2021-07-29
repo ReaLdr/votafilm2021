@@ -6,9 +6,9 @@
   	include('sqlconnector.php');
 	//define("URL_CONCU", "http://145.0.40.76/concursos2019/");
 	include('rutasitio.php');
-	
-	  
-	
+
+
+
 
   	$idusr=$_POST['id'];
 
@@ -20,7 +20,7 @@
 	if($idusr==0){
 		$query3= "SELECT * from ".BD_USUARIOS." where correo='".$correo."'";
 		$row3=sqlsrv_query($conn,$query3);
-		
+
 		while($res3=sqlsrv_fetch_array($row3)){
 
 			$idusr = $res3['idusuario'];
@@ -36,7 +36,7 @@
 	}else{
 		$query3= "SELECT * from ".BD_USUARIOS." where idusuario=".$idusr."";
 		$row3=sqlsrv_query($conn,$query3);
-		
+
 		while($res3=sqlsrv_fetch_array($row3)){
 			$nombre_c = $res3['nombre'];
 			$paterno_c= $res3['paterno'];
@@ -49,19 +49,19 @@
 
 	}
 
-	
-		
+
+
 
 	///$row=false;
-		
+
 		//////crear correooooo/////
-		
-		
 
-	
 
-		
-		
+
+
+
+
+
 	if($row3 &&$correo!=""){
 		$mail = new PHPMailer(true);
 					//Luego tenemos que iniciar la validación por SMTP:
@@ -77,33 +77,33 @@
 					$mail->Port = 25; // Puerto a utilizar
 					$mail->From = "no-reply@iecm.mx"; // Desde donde enviamos (Para mostrar)
 					$mail->FromName = "Instituto Electoral de la Ciudad de México";
-					
-					//Estas dos líneas, cumplirían la función de encabezado (En mail() usado de esta forma: “From: Nombre <correo@dominio.com>”) de //correo.
-					
-				
-			
-					$id_64=base64_encode($idusr);
-				
 
-	
-					$html=' 
+					//Estas dos líneas, cumplirían la función de encabezado (En mail() usado de esta forma: “From: Nombre <correo@dominio.com>”) de //correo.
+
+
+
+					$id_64=base64_encode($idusr);
+
+
+
+					$html='
 					<html>
 					<body style="width:80%; display: block; margin: 0 auto;">
 					<table width="353" border="0">
 			  			<tbody>
 				    		<tr>
 				      			<td width="218"><img src="'.URL_CONCU.'/img/header20_1.png" width="146" height="151"></td>
-						      	<td width="805"><h1 style="color:#6611AA;">VOTA<b>FILM</b>FEST 2020</h1> </td>
+						      	<td width="805"><h1 style="color:#6611AA;">VOTA<b>FILM</b>FEST 2021</h1> </td>
 				    		</tr>
 			  			</tbody>
 					</table>
 					<hr>
 
 					<div style="align:center">
-							
-							
-							<p align="justify"> Agradecemos tu registro de usuario para la tercera edición del Concurso de Cortos Vota Film Fest 2020 del Instituto Electoral de la Ciudad de México. Para continuar con tu inscripción como participante, deberás ingresar al sistema con tu usuario y contraseña.</p>
-							<p align="justify">Es importante que previo a tu solicitud de registro como aspirante, cuentes con toda la información y documentación necesaria señalada en la Convocatoria, ya que tu registro depende de ello.</p>
+
+
+							<p align="justify"> Agradecemos tu registro de usuario para la cuarta edición del Concurso de Cortos VOTA FILM FEST 2021 del Instituto Electoral de la Ciudad de México. Para continuar con tu inscripción como participante, deberás ingresar al sistema con tu usuario y contraseña.</p>
+							<p align="justify">Es importante que, previo a tu solicitud de registro como aspirante, cuentes con toda la información y documentación necesaria señalada en la Convocatoria, ya que tu registro depende de ello.</p>
 							<br>
 							<br>
 
@@ -126,9 +126,6 @@
 					</html>';
 
 		                   try{
-							$destinatario1 = 'nancy.hernandez@iecm.mx';
-							$destinatario2 = 'sergio.monterrubio@iecm.mx';	
-				
 
 							//$mail->AddAddress($destinatario1); // Esta es la dirección a donde enviamos
 							//$mail->AddAddress($destinatario2); // Esta es la dirección a donde enviamos
@@ -139,20 +136,20 @@
 							///////////////------>>>>>
 							//$mail->AddCC("inscripciones@iedf.org.mx"); // Copia
 							//$mail->AddBCC("inscripciones@iedf.org.mx"); // Copia oculta
-							$mail->AddBCC("sergio.monterrubio@iecm.mx"); // Copia oculta
+							$mail->AddBCC("daniel.rea@iecm.mx"); // Copia oculta
 							//$mail->AddBCC("concursos@iecm.mx"); // Copia oculta
 
 
 							$mail->IsHTML(true); // El correo se envía como HTML
-							$mail->Subject = "REENVÍO - VOTAFILMFEST"; // Este es el titulo del email.
+							$mail->Subject = "REENVÍO - VOTAFILMFEST 2021"; // Este es el titulo del email.
 							$mail->Body = $html; // Mensaje a enviar
-							
+
 							$exito = $mail->Send(); // Envía el correo.
-							
+
 
 							//$exito ="1";//
 							//$exito =0;//
-				
+
 								if($exito):
 
 									echo "<div class='alert alert-success'>Correo enviado</div>";
@@ -161,23 +158,23 @@
 								else:
 
 									echo "<div class='alert alert-warning'>Hubo un problema con el formato del correo electrónico</div>";
-	
 
-								 
+
+
 
 
 								endif;
 							}//try
 							catch (Exception $e) {
-					
+
 							      echo "<div class='alert alert-warning'> Erro al enviar el correo. Excepción: ".$e->getMessage()."</div>";
 							};//catch
 
-                    
+
 
                     $mail->ClearAddresses();
 
-                     
+
 
     }
 
@@ -185,15 +182,15 @@
      ///echo " - id=".$idusr." - correo: ".$correo;
 
 
-   
-                    
-
-	
 
 
 
 
 
 
-  
+
+
+
+
+
   ?>
