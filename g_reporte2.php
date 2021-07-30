@@ -76,7 +76,7 @@ echo '<tr>
 
         </tr>';
 
-        $fecha_inicio_concurso="2021-07-27";
+        $fecha_inicio_concurso="2021-10-22";
         //$fecha_inicio_concurso="2021-08-10";//BUENA
 
 

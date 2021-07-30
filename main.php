@@ -144,7 +144,7 @@
   $folio=str_replace("/jF5i/","",$folio_string);*/
 
     //$style_disabled=" disabled style='background-color:#f7f7f7;'";
-    $fecha_inicio_concurso="2021-07-27";
+    $fecha_inicio_concurso="2021-10-22";
     //$fecha_inicio_concurso="2021-08-10";//BUENA
 
 

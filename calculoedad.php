@@ -9,7 +9,7 @@
 
 //    $fecha_inicio_año_concurso="2020-01-01";
 
-    $fecha_inicio_concurso="2021-07-27";
+    $fecha_inicio_concurso="2021-10-22";
     //$fecha_inicio_concurso="2021-08-10";//ORIGINAL
 
 
@@ -66,7 +66,7 @@
 
             $resultado=array(
                         'edad'=>$edad,
-                        'mensaje'=>'<div class="alert alert-success">Tu edad (al 10 de agosto de 2021): <b>'.$edad.'</b> '.$cadena_edad.'</div>',
+                        'mensaje'=>'<div class="alert alert-success">Tu edad es: <b>'.$edad.'</b> '.$cadena_edad.'</div>',
                         'califica'=>'1'
                         );
 
@@ -91,7 +91,7 @@
 
              $resultado=array(
                         'edad'=>$edad,
-                        'mensaje'=>'<div class="alert alert-warning"><p>Tu edad (al 10 de agosto de 2021):<b>'.$edad.'</b></p><p>Sólo se permite concursar en dos categorías: de 12 a 17 años y de 18 a 29 años.</p>'.$cadena_edad.'</div>',
+                        'mensaje'=>'<div class="alert alert-warning"><p>Tu edad es:<b>'.$edad.'</b></p><p>Sólo se permite concursar en dos categorías: de 12 a 17 años y de 18 a 29 años.</p>'.$cadena_edad.'</div>',
                         'califica'=>'0'
                         );
              /*
