@@ -9,7 +9,6 @@
 					<div class="" style="margin-top: 25px;">
 						<img src="img/logovota.jpeg"  class="img-responsive" id="imgheader2" width="200">
 					</div>
-					<i>Sistema para pruebas</i>
 				</div>
 			</div>
 

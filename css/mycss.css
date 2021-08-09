@@ -557,8 +557,9 @@ hr.small{
   }
 
   .col-sm-6 #imgheader2{
-    width: 250px;
-    margin-top: -20px
+    width: 220px;
+    margin-top: -20px;
+    padding-bottom: 4px;
   }
 
   .header, header{

@@ -163,7 +163,7 @@
 
  <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/mycss.css" rel="stylesheet">
+    <link href="css/mycss.css?random=<?php echo rand() ?>" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -171,8 +171,8 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--<script src="js/holder.min.js"></script>-->
-    <script src="js/funcionesajax.js"></script>
-    <link rel="stylesheet" href="css/all.css">
+    <script src="js/funcionesajax.js?random=<?php echo rand() ?>"></script>
+    <link rel="stylesheet" href="css/all.css?random=<?php echo rand() ?>">
 
     <script >
       $(function () {

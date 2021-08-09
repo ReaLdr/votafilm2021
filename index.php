@@ -10,13 +10,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="pragma" content="no-cache" />
 
 
-  <title>VOTAFILMFEST 2020</title>
+  <title>VOTAFILMFEST 2021</title>
 
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/mycss.css" rel="stylesheet">
+  <link href="css/mycss.css?random=<?php echo rand() ?>" rel="stylesheet">
 
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -24,9 +25,9 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
-  <script src="js/funcionesajax.js"></script>
-  <link rel="stylesheet" href="css/all.css">
-  <link rel="stylesheet" href="css/animate.min.css">
+  <script src="js/funcionesajax.js?random=<?php echo rand() ?>"></script>
+  <link rel="stylesheet" href="css/all.css?random=<?php echo rand() ?>">
+  <link rel="stylesheet" href="css/animate.min.css?random=<?php echo rand() ?>">
 
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"/> -->
@@ -119,11 +120,11 @@
       </div>
 
       <div class="row justify-content-md-center">
-        <div class="col-sm-auto contenido animated bounceIn">
+        <div class="col-sm-auto contenido indicacion animated bounceIn">
 
 
 
-          <button class="btn btn-portada"><img src="img/logovota2020.jpeg" class="img-fluid">
+          <button class="btn btn-portada"><img src="img/logovota2020.jpeg?random=<?php echo rand() ?>" class="img-fluid">
 
             <div class="overlay">
               <div class="text">¡Regístrate!</div>

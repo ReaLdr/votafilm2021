@@ -95,7 +95,7 @@ function crearusuario(){
 
         }//user
 
-        if (pass1 == 0)
+        if (pass1 == 0 || pass1 == "")
         //alert("Hola!!");
         {
             error_string+="<p>"+"El campo contraseña no debe estar vacío"+"</p>";

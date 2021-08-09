@@ -11,7 +11,7 @@
 
 
     $fecha1="2021-07-27 08:59:00";
-    //$fecha1="2021-08-10 08:59:00";//LA BUENA
+    //$fecha1="2021-08-20 08:59:00";//LA BUENA
     $fecha2="2021-10-22 23:59:59";
 //10 de agosto al 22 de octubre de 2021
    //	   08              10
@@ -256,7 +256,7 @@
             <hr>
             <div class="col">
 
-              <p> Periodo de registro:</p> <p><b>Del 10 de agosto al 22 de octubre de 2021</b></p>
+              <p> Periodo de registro:</p> <p><b>Del 20 de agosto al 22 de octubre de 2021</b></p>
               <!-- <p><?php echo date($fecha1)." - ".date("Y-m-d H:i:s");?></p>-->
             </div>
           </form>
