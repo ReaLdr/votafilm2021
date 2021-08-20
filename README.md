@@ -21,3 +21,9 @@ main.php
 g_reporte2.php
 g_reporte1.php
 calculoedad.php
+
+## Actualización de convocatoria y fecha de apertura instalada
+- Realizado [17/08/2021]
+        - Se actualiza la convocatoria
+        - Se fija la fecha de apertura al 20/08/2021
+        - Se inicializan las tablas

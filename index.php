@@ -109,7 +109,7 @@
 
       <div class="animacion_index">
 
-        <h1 style="padding: 14px;" class="indicacion animated bounceIn">Da click en la imagen para el registro <i class="fas fa-arrow-down"></i></h1>
+        <h1 style="padding: 14px; display: flex;" class="indicacion animated bounceIn">Da click en la imagen para el registro <i class="fas fa-arrow-down"></i></h1>
 
         <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <circle id="Oval" cx="512" cy="512" r="512"></circle>
