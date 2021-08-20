@@ -10,7 +10,7 @@
     exit;
   }
 
-  $fecha1="2021-08-20 00:00:00";//LA BUENA
+  $fecha1="2021-08-20 12:00:00";//LA BUENA
   $fecha2="2021-10-22 23:59:59";
   if(date("Y-m-d H:i:s")>=date($fecha1)&&date("Y-m-d H:i:s")<=date($fecha2)){
     //echo "dentro de rango";
