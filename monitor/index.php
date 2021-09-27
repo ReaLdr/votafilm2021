@@ -33,19 +33,20 @@
         <!-- TOTAL DE REGISTROS POR FECHA -->
         <div class="card-body">
           <h5 class="card-title">Personas que se registraron (crearon una cuenta)</h5>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <table data-toggle="table" data-show-export="true" data-export-types="['csv', 'doc', 'excel']" data-search="true" data-show-columns="true" data-export-options='{"fileName": "Personas_que_crearon_una_cuenta_<?php echo $today; ?>"}' data-pagination="true">
-                  <thead>
-                    <tr class="tr-class-2">
-                      <th data-field="star" data-sortable="true">#</th>
-                      <th data-field="forks" data-sortable="true">Fecha de registro</th>
-                      <th data-field="description" data-sortable="true">N&uacute;mero de registros</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <table data-toggle="table" data-show-export="true" data-export-types="['csv', 'doc', 'excel']" data-search="true" data-show-columns="true" data-export-options='{"fileName": "Personas_que_crearon_una_cuenta_<?php echo $today; ?>"}' data-pagination="true">
+                    <thead>
+                      <tr class="tr-class-2">
+                        <th data-field="star" data-sortable="true">#</th>
+                        <th data-field="forks" data-sortable="true">Fecha de registro</th>
+                        <th data-field="description" data-sortable="true">N&uacute;mero de registros</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
                       include '../sqlconnector.php';
                       // echo $today;
                       $query_get_by_date = "SELECT COUNT(*) AS numero_registros, CAST(fecha_alta AS DATE) AS fecha_registro FROM ".BD_USUARIOS." WHERE perfil = ? GROUP BY CAST(fecha_alta AS DATE) ORDER BY fecha_registro;";
@@ -55,21 +56,67 @@
                         $i = 1;
                         while ($row_by_ate = sqlsrv_fetch_array($exe_get_by_date)) {
                           echo '<tr id="tr-id-'.$i.'" class="tr-class-'.$i.'">
-                                  <td id="td-id-'.$i.'" class="td-class-'.$i.'">'.$i.'</td>
-                                  <td>'.$row_by_ate['fecha_registro'].'</td>
-                                  <td>'.$row_by_ate['numero_registros'].'</td>
-                                </tr>';
-                                $i++;
+                          <td id="td-id-'.$i.'" class="td-class-'.$i.'">'.$i.'</td>
+                          <td>'.$row_by_ate['fecha_registro'].'</td>
+                          <td>'.$row_by_ate['numero_registros'].'</td>
+                          </tr>';
+                          $i++;
+                          $array_data[] = array("fecha" => $row_by_ate['fecha_registro'],
+                          											"total" => $row_by_ate['numero_registros']
+                          										);
                         }
+                        $json_info_card = json_encode($array_data, JSON_HEX_APOS);
+                        $count = count($array_data);
+                        $label_fechas = "";
+                        $label_registros = "";
+                        if($count > 1){
+                          for ($k=0; $k <= $count-1; $k++) {
+                            //echo "<br>" . $array_data[$k]["fecha"] . "<br>";
+                            //echo "Entra: " . $k . "<br>";
+                            if($k <= 0 ){
+                              //Agregamos corchete
+                              $label_fechas .= '["'.$array_data[$k]["fecha"].'",';
+                              $label_registros .= '['.$array_data[$k]["total"].',';
+                            } else{
+                              if($k == $count-1){
+                                //agregamos llave y no pone última comilla
+                                $coma_fechas = '"';
+                                $coma_registros = '';
+                                $cierre = "]";
+                                //AREGA coma y cierre
+                              } else{
+                                $coma_fechas = '",';
+                                $coma_registros = ',';
+                                $cierre = "";
+                                //SE QUITA coma y cierre
+                              }
+                              $label_fechas .= '"'.$array_data[$k]["fecha"].$coma_fechas.$cierre;
+                              $label_registros .= $array_data[$k]["total"].$coma_registros.$cierre;
+                            }
+                          }
+                        } else{
+                          $label_fechas .= '["'.$array_data[0]["fecha"].'"]';
+                          $label_registros .= "[".$array_data[0]["total"]."]";
+                        }
+                        //echo $label_registros;
+
                       } else{
                         echo "<tr><td colspan='3'>Error: ".die( print_r( sqlsrv_errors(), true) )."</td></tr>";
                       }
                       sqlsrv_free_stmt($exe_get_by_date);
                       //sqlsrv_close($conn);
                       //die( print_r( sqlsrv_errors(), true) )
-                       ?>
-                  </tbody>
-                </table>
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <canvas id="chart1"></canvas>
+                </div>
               </div>
             </div>
           </div>
@@ -194,6 +241,52 @@
   <script src="libs/tableExport.min.js"></script>
   <script src="libs/bootstrap-table-export.min.js"></script>
   <script type="text/javascript">
+  // CHART 1
+  let by_date = document.getElementById("chart1").getContext('2d');
+  let myChart1 = new Chart(by_date, {
+    type: 'bar',
+    data: {
+      labels: <?php echo $label_fechas; ?>,
+      datasets: [
+        {
+          label: 'Registros',
+          backgroundColor: "#2e5468",
+          data: <?php echo $label_registros; ?>
+        }
+    ],
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        xAxes: [{
+          stacked: true,
+          gridLines: {
+            display: false,
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+          },
+          type: 'linear',
+        }]
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+    }
+  });
+  // CHART 1
+
+  // CHART 2
   let ctx = document.getElementById("chart").getContext('2d');
   let myChart = new Chart(ctx, {
     type: 'bar',
@@ -201,11 +294,11 @@
       labels: <?php echo $labels; ?>,
       datasets: [{
         label: 'Con folio',
-        backgroundColor: "#008d93",
+        backgroundColor: "#2e5468",
         data: <?php echo $data_con; ?>
       }, {
         label: 'Sin folio',
-        backgroundColor: "#2e5468",
+        backgroundColor: "#e44040",
         data: <?php echo $data_sin; ?>
       }],
     },
@@ -238,6 +331,7 @@
       },
     }
   });
+  // CHART 2
 
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       localStorage.setItem('activeTab', $(e.target).attr('href'));
