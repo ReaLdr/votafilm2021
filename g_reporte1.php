@@ -48,7 +48,7 @@ echo '<tr>
 
         </tr>';
 
- $fecha_inicio_concurso="2021-10-22";
+ $fecha_inicio_concurso="2021-11-30";
  //$fecha_inicio_concurso="2021-08-10";//BUENA
   //$años_hoy=date_diff(date_create($fecha_nacimiento), date_create('today'))->y;
 

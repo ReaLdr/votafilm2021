@@ -76,8 +76,7 @@ echo '<tr>
 
         </tr>';
 
-        $fecha_inicio_concurso="2021-10-22";
-        //$fecha_inicio_concurso="2021-08-10";//BUENA
+        $fecha_inicio_concurso="2021-11-30";
 
 
 $row = sqlsrv_query($conn,$sql);

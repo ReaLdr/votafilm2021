@@ -558,7 +558,7 @@ if($action=='update'){//////////////////código del update y el correo
 
 
 
-    $fecha_fin_concurso="2021-10-22";
+    $fecha_fin_concurso="2021-11-30";
     //$fecha_fin_concurso="2020-07-21";
  	//$años_hoy=date_diff(date_create($fecha_nacimiento), date_create('today'))->y;
     $edad=date_diff(date_create($fecha_nacimiento), date_create($fecha_fin_concurso))->y;

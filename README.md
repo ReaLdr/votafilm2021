@@ -27,3 +27,13 @@ calculoedad.php
         - Se actualiza la convocatoria
         - Se fija la fecha de apertura al 20/08/2021
         - Se inicializan las tablas
+
+## Se ampliaron los plazos
+- Realizado [22/10/2021]
+        
+        - Se actualiza la fecha de cierre del sistema
+
+|Anterior                       |Nueva                        |
+|-------------------------------|-----------------------------|
+|`Viernes 20 de agosto al viernes 22 de octubre de 2021`            |Viernes 20 de agosto al martes 30 de noviembre de 2021 hasta las 23:59 horas            |
+        - Se actualiza material gráfico

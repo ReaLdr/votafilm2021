@@ -124,7 +124,7 @@
 
 
 
-          <button class="btn btn-portada"><img src="img/logovota2020.jpeg?random=<?php echo rand() ?>" class="img-fluid">
+          <button class="btn btn-portada"><img src="img/logovota2021.png?random=<?php echo rand() ?>" class="img-fluid">
 
             <div class="overlay">
               <div class="text">¡Regístrate!</div>
