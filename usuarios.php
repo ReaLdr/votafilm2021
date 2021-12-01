@@ -11,7 +11,7 @@
   }
 
   $fecha1="2021-08-20 12:00:00";//LA BUENA
-  $fecha2="2021-11-30 23:59:59";
+  $fecha2="2021-12-01 23:59:00";
   if(date("Y-m-d H:i:s")>=date($fecha1)&&date("Y-m-d H:i:s")<=date($fecha2)){
     //echo "dentro de rango";
     //$fecha_registro="";

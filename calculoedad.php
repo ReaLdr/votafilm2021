@@ -9,7 +9,7 @@
 
 //    $fecha_inicio_año_concurso="2020-01-01";
 
-    $fecha_inicio_concurso="2021-11-30";
+    $fecha_inicio_concurso="2021-12-01";
 
 
 //    $fecha_fin_año_concurso="2020-12-31";

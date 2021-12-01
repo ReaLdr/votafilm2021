@@ -15,12 +15,14 @@
       - EL sistema ya se encuentra en su ambiente productivo
     > **El sistema se encuentra listo para realizar nuevos ejercicios si así lo requieren** <br> **Nota:** Se recomienda borrar caché del navegador
 
-## Archivos que contendrán fecha ficticia para ejercicios
+## Archivos que contendrán fecha para validación
+adjuntardocumentacioncerrado.php
+calculoedad.php
+g_reporte1.php
+g_reporte2.php
 login.php
 main.php
-g_reporte2.php
-g_reporte1.php
-calculoedad.php
+usuarios.php
 
 ## Actualización de convocatoria y fecha de apertura instalada
 - Realizado [17/08/2021]
@@ -37,3 +39,6 @@ calculoedad.php
 |-------------------------------|-----------------------------|
 |`Viernes 20 de agosto al viernes 22 de octubre de 2021`            |Viernes 20 de agosto al martes 30 de noviembre de 2021 hasta las 23:59 horas            |
         - Se actualiza material gráfico
+
+## Ampliación de registro y complemento de información
+Se modifican fechas del sistema para que el registro y complemento de información sea hasta el 1 de diciembre del 2021

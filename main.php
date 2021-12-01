@@ -300,7 +300,7 @@
 
                   <?php
 
-                  $fechacierre="2021-11-30 00:00:00";
+                  $fechacierre="2021-12-01 23:59:00";
                   //$fechacierre="2020-09-19 00:00:00"; ///ORIGINAL
 
 

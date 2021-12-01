@@ -271,7 +271,7 @@
      echo '<div class="alert alert-info">';
       echo'<div class="m-2 p-3 border border-light">
           <h3>El periodo para actualización de documentos ha terminado</h3>
-          <h4>Agradecemos tu participación en el  VOTA FILM FEST 2019</h4>
+          <h4>Agradecemos tu participación en el  VOTA FILM FEST 2021</h4>
                                
             
         </div>';
